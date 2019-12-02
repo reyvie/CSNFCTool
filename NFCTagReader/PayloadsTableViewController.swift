@@ -7,6 +7,7 @@ Payload table view controller
 
 import UIKit
 import CoreNFC
+import os
 
 extension NFCTypeNameFormat: CustomStringConvertible {
     public var description: String {
@@ -51,13 +52,14 @@ class PayloadsTableViewController: UITableViewController, NFCNDEFReaderSessionDe
             if let type = String(data: payload.type, encoding: .utf8) {
                 if let url = payload.wellKnownTypeURIPayload() {
                     textLabel.text = "\(payload.typeNameFormat.description): \(type), \(url.absoluteString)"
+                    
                 } else {
-                    textLabel.text = "\(payload.typeNameFormat.description): \(type)"
+                    textLabel.text = "\(payload.typeNameFormat.description): \(type), \(payload.wellKnownTypeTextPayload())"
                 }
             }
         case .absoluteURI:
             if let text = String(data: payload.payload, encoding: .utf8) {
-                textLabel.text = text
+                textLabel.text = "\(text)"
             }
         case .media:
             if let type = String(data: payload.type, encoding: .utf8) {
@@ -80,9 +82,9 @@ class PayloadsTableViewController: UITableViewController, NFCNDEFReaderSessionDe
     }
     
     // MARK: - NFCNDEFReaderSessionDelegate
-    
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
     }
+    
     
     /// - Tag: writeToTag
     func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
@@ -124,7 +126,8 @@ class PayloadsTableViewController: UITableViewController, NFCNDEFReaderSessionDe
                         if nil != error {
                             session.alertMessage = "Write NDEF message fail: \(error!)"
                         } else {
-                            session.alertMessage = "Write NDEF message successful."
+                            session.alertMessage = "Write NDEF message successful. \(self.message)"
+                            print("message \(self.message)")
                         }
                         session.invalidate()
                     })
@@ -136,9 +139,18 @@ class PayloadsTableViewController: UITableViewController, NFCNDEFReaderSessionDe
         })
     }
     
+    func createURLPayload() -> NFCNDEFPayload? {
+        let urlComponent = URLComponents(string: "cstap://opentile?guid=9bd9f5d0")
+        os_log("url: %@", (urlComponent?.string)!)
+        return NFCNDEFPayload.wellKnownTypeURIPayload(url: (urlComponent?.url)!)
+    }
+    
+    
     /// - Tag: sessionBecomeActive
     func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {
-        
+        let urlPayload = self.createURLPayload()
+        message = NFCNDEFMessage(records: [urlPayload!])
+        os_log("MessageSize=%d", message.length)
     }
     
     /// - Tag: endScanning
@@ -155,11 +167,14 @@ class PayloadsTableViewController: UITableViewController, NFCNDEFReaderSessionDe
                     message: error.localizedDescription,
                     preferredStyle: .alert
                 )
+                
                 alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 DispatchQueue.main.async {
                     self.present(alertController, animated: true, completion: nil)
                 }
             }
+            
         }
     }
+    
 }

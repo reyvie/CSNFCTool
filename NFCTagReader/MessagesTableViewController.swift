@@ -8,18 +8,23 @@ The view controller that scans and displays NDEF messages.
 import UIKit
 import CoreNFC
 
+
 /// - Tag: MessagesTableViewController
 class MessagesTableViewController: UITableViewController, NFCNDEFReaderSessionDelegate {
 
     // MARK: - Properties
-
+    let dummyData = ["9bd9f5d0", "5ds2c5h0", "2fv3d4g1", "4df2g5c2"]
+    
+    var selected: String = "" 
     let reuseIdentifier = "reuseIdentifier"
     var detectedMessages = [NFCNDEFMessage]()
     var session: NFCNDEFReaderSession?
-
+    var message: NFCNDEFMessage = .init(records: [])
+    //var newMsg = NFCNDEFMessage()
     // MARK: - Actions
 
     /// - Tag: beginScanning
+    /*
     @IBAction func beginScanning(_ sender: Any) {
         guard NFCNDEFReaderSession.readingAvailable else {
             let alertController = UIAlertController(
@@ -31,36 +36,36 @@ class MessagesTableViewController: UITableViewController, NFCNDEFReaderSessionDe
             self.present(alertController, animated: true, completion: nil)
             return
         }
-
+        
         session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
         session?.alertMessage = "Hold your iPhone near the item to learn more about it."
         session?.begin()
-    }
-
+    }*/
+    
     // MARK: - NFCNDEFReaderSessionDelegate
 
     /// - Tag: processingTagData
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
-        DispatchQueue.main.async {
-            // Process detected NFCNDEFMessage objects.
-            self.detectedMessages.append(contentsOf: messages)
-            self.tableView.reloadData()
-        }
+//        DispatchQueue.main.async {
+//            // Process detected NFCNDEFMessage objects.
+//            self.detectedMessages.append(contentsOf: messages)
+//            self.tableView.reloadData()
+//        }
     }
 
     /// - Tag: processingNDEFTag
     func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
         if tags.count > 1 {
-            // Restart polling in 500ms
+            // Restart polling in 500 milliseconds.
             let retryInterval = DispatchTimeInterval.milliseconds(500)
-            session.alertMessage = "More than 1 tag is detected, please remove all tags and try again."
+            session.alertMessage = "More than 1 tag is detected. Please remove all tags and try again."
             DispatchQueue.global().asyncAfter(deadline: .now() + retryInterval, execute: {
                 session.restartPolling()
             })
             return
         }
         
-        // Connect to the found tag and perform NDEF message reading
+        // Connect to the found tag and write an NDEF message to it.
         let tag = tags.first!
         session.connect(to: tag, completionHandler: { (error: Error?) in
             if nil != error {
@@ -70,39 +75,41 @@ class MessagesTableViewController: UITableViewController, NFCNDEFReaderSessionDe
             }
             
             tag.queryNDEFStatus(completionHandler: { (ndefStatus: NFCNDEFStatus, capacity: Int, error: Error?) in
-                if .notSupported == ndefStatus {
-                    session.alertMessage = "Tag is not NDEF compliant"
-                    session.invalidate()
-                    return
-                } else if nil != error {
-                    session.alertMessage = "Unable to query NDEF status of tag"
+                guard error == nil else {
+                    session.alertMessage = "Unable to query the NDEF status of tag."
                     session.invalidate()
                     return
                 }
-                
-                tag.readNDEF(completionHandler: { (message: NFCNDEFMessage?, error: Error?) in
-                    var statusMessage: String
-                    if nil != error || nil == message {
-                        statusMessage = "Fail to read NDEF from tag"
-                    } else {
-                        statusMessage = "Found 1 NDEF message"
-                        DispatchQueue.main.async {
-                            // Process detected NFCNDEFMessage objects.
-                            self.detectedMessages.append(message!)
-                            self.tableView.reloadData()
-                        }
-                    }
-                    
-                    session.alertMessage = statusMessage
+
+                switch ndefStatus {
+                case .notSupported:
+                    session.alertMessage = "Tag is not NDEF compliant."
                     session.invalidate()
-                })
+                case .readOnly:
+                    session.alertMessage = "Tag is read only."
+                    session.invalidate()
+                case .readWrite:
+                    tag.writeNDEF(self.message, completionHandler: { (error: Error?) in
+                        if nil != error {
+                            session.alertMessage = "Write NDEF message fail: \(error!)"
+                        } else {
+                            session.alertMessage = "Write NDEF message successful."
+                            //print("message \(self.message.records[0].)")
+                        }
+                        session.invalidate()
+                    })
+                @unknown default:
+                    session.alertMessage = "Unknown NDEF tag status."
+                    session.invalidate()
+                }
             })
         })
     }
     
     /// - Tag: sessionBecomeActive
     func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {
-        
+        let urlPayload = self.createURLPayload()
+        message = NFCNDEFMessage(records: [urlPayload!])
     }
     
     /// - Tag: endScanning
@@ -130,7 +137,7 @@ class MessagesTableViewController: UITableViewController, NFCNDEFReaderSessionDe
         // To read new tags, a new session instance is required.
         self.session = nil
     }
-
+ 
     // MARK: - addMessage(fromUserActivity:)
 
     func addMessage(fromUserActivity message: NFCNDEFMessage) {
@@ -139,4 +146,5 @@ class MessagesTableViewController: UITableViewController, NFCNDEFReaderSessionDe
             self.tableView.reloadData()
         }
     }
+    
 }

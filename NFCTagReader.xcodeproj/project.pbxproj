@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3E30BE92394D3C900F47F5F /* ScanTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E30BE82394D3C800F47F5F /* ScanTagViewController.swift */; };
 		B41052241EC2BA04006D9146 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41052231EC2BA04006D9146 /* AppDelegate.swift */; };
 		B41052291EC2BA04006D9146 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B41052271EC2BA04006D9146 /* Main.storyboard */; };
 		B410522E1EC2BA04006D9146 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B410522C1EC2BA04006D9146 /* LaunchScreen.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		1426D16B1ED030FC0082EAE0 /* NFCTagReader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = NFCTagReader.entitlements; path = ../NFCTagReader.entitlements; sourceTree = "<group>"; };
+		B3E30BE82394D3C800F47F5F /* ScanTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTagViewController.swift; sourceTree = "<group>"; };
 		B41052201EC2BA04006D9146 /* NFCTagReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NFCTagReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B41052231EC2BA04006D9146 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B41052281EC2BA04006D9146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -28,8 +30,8 @@
 		B47143DC1ECF6EC10026C5B4 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		B47143DD1ECF6EC10026C5B4 /* MessagesTableViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MessagesTableViewController+DataSource.swift"; sourceTree = "<group>"; };
 		B47143DE1ECF6EC10026C5B4 /* PayloadsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadsTableViewController.swift; sourceTree = "<group>"; };
-		D5C3DC30D5C429F000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
-		D8089BF0D8089AD000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
+		D5C3DC30D5C429F000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		D8089BF0D8089AD000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				B41052231EC2BA04006D9146 /* AppDelegate.swift */,
+				B3E30BE82394D3C800F47F5F /* ScanTagViewController.swift */,
 				B47143DC1ECF6EC10026C5B4 /* MessagesTableViewController.swift */,
 				B47143DD1ECF6EC10026C5B4 /* MessagesTableViewController+DataSource.swift */,
 				B47143DE1ECF6EC10026C5B4 /* PayloadsTableViewController.swift */,
@@ -99,7 +102,6 @@
 			children = (
 				D8089BF0D8089AD000000001 /* LICENSE.txt */,
 			);
-			name = LICENSE;
 			path = LICENSE;
 			sourceTree = "<group>";
 		};
@@ -113,7 +115,6 @@
 				B410521C1EC2BA04006D9146 /* Sources */,
 				B410521D1EC2BA04006D9146 /* Frameworks */,
 				B410521E1EC2BA04006D9146 /* Resources */,
-				17E29EE017E2A71000000001,
 			);
 			buildRules = (
 			);
@@ -186,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B47143E11ECF6EC10026C5B4 /* PayloadsTableViewController.swift in Sources */,
+				B3E30BE92394D3C900F47F5F /* ScanTagViewController.swift in Sources */,
 				B47143E01ECF6EC10026C5B4 /* MessagesTableViewController+DataSource.swift in Sources */,
 				B47143DF1ECF6EC10026C5B4 /* MessagesTableViewController.swift in Sources */,
 				B41052241EC2BA04006D9146 /* AppDelegate.swift in Sources */,
@@ -335,12 +337,12 @@
 				CODE_SIGN_ENTITLEMENTS = NFCTagReader/NFCTagReader.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 826GYCV8FQ;
 				INFOPLIST_FILE = NFCTagReader/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.NFCTagReader${SAMPLE_CODE_DISAMBIGUATOR}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudstaff.NFCTagReader;
+				PRODUCT_NAME = NFCTagReader;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -357,12 +359,12 @@
 				CODE_SIGN_ENTITLEMENTS = NFCTagReader/NFCTagReader.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 826GYCV8FQ;
 				INFOPLIST_FILE = NFCTagReader/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.NFCTagReader${SAMPLE_CODE_DISAMBIGUATOR}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudstaff.NFCTagReader;
+				PRODUCT_NAME = NFCTagReader;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
