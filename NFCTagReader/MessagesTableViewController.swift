@@ -79,7 +79,7 @@ class MessagesTableViewController: UITableViewController, NFCNDEFReaderSessionDe
                     session.alertMessage = "Unable to query the NDEF status of tag."
                     session.invalidate()
                     return
-                }
+                } 
 
                 switch ndefStatus {
                 case .notSupported:

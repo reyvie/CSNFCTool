@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		1426D16B1ED030FC0082EAE0 /* NFCTagReader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = NFCTagReader.entitlements; path = ../NFCTagReader.entitlements; sourceTree = "<group>"; };
 		B3E30BE82394D3C800F47F5F /* ScanTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTagViewController.swift; sourceTree = "<group>"; };
-		B41052201EC2BA04006D9146 /* NFCTagReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NFCTagReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B41052201EC2BA04006D9146 /* CS NFC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CS NFC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B41052231EC2BA04006D9146 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B41052281EC2BA04006D9146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B410522D1EC2BA04006D9146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 		B41052211EC2BA04006D9146 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B41052201EC2BA04006D9146 /* NFCTagReader.app */,
+				B41052201EC2BA04006D9146 /* CS NFC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,9 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B410521F1EC2BA04006D9146 /* NFCTagReader */ = {
+		B410521F1EC2BA04006D9146 /* CS NFC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B41052321EC2BA04006D9146 /* Build configuration list for PBXNativeTarget "NFCTagReader" */;
+			buildConfigurationList = B41052321EC2BA04006D9146 /* Build configuration list for PBXNativeTarget "CS NFC" */;
 			buildPhases = (
 				B410521C1EC2BA04006D9146 /* Sources */,
 				B410521D1EC2BA04006D9146 /* Frameworks */,
@@ -120,9 +120,9 @@
 			);
 			dependencies = (
 			);
-			name = NFCTagReader;
+			name = "CS NFC";
 			productName = NFCTagReader;
-			productReference = B41052201EC2BA04006D9146 /* NFCTagReader.app */;
+			productReference = B41052201EC2BA04006D9146 /* CS NFC.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -150,7 +150,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B410521B1EC2BA04006D9146 /* Build configuration list for PBXProject "NFCTagReader" */;
+			buildConfigurationList = B410521B1EC2BA04006D9146 /* Build configuration list for PBXProject "CS NFC" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -163,7 +163,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B410521F1EC2BA04006D9146 /* NFCTagReader */,
+				B410521F1EC2BA04006D9146 /* CS NFC */,
 			);
 		};
 /* End PBXProject section */
@@ -341,8 +341,8 @@
 				INFOPLIST_FILE = NFCTagReader/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cloudstaff.NFCTagReader;
-				PRODUCT_NAME = NFCTagReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudstaff.CSNFC;
+				PRODUCT_NAME = "CS NFC";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -363,8 +363,8 @@
 				INFOPLIST_FILE = NFCTagReader/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cloudstaff.NFCTagReader;
-				PRODUCT_NAME = NFCTagReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cloudstaff.CSNFC;
+				PRODUCT_NAME = "CS NFC";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -376,7 +376,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B410521B1EC2BA04006D9146 /* Build configuration list for PBXProject "NFCTagReader" */ = {
+		B410521B1EC2BA04006D9146 /* Build configuration list for PBXProject "CS NFC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B41052301EC2BA04006D9146 /* Debug */,
@@ -385,7 +385,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B41052321EC2BA04006D9146 /* Build configuration list for PBXNativeTarget "NFCTagReader" */ = {
+		B41052321EC2BA04006D9146 /* Build configuration list for PBXNativeTarget "CS NFC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B41052331EC2BA04006D9146 /* Debug */,
