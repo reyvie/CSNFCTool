@@ -8,13 +8,30 @@
 
 import UIKit
 import CoreNFC
+import Alamofire
+
+extension NFCTypeNameFormat: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .nfcWellKnown: return "NFC Well Known type"
+        case .media: return "Media type"
+        case .absoluteURI: return "Absolute URI type"
+        case .nfcExternal: return "NFC External type"
+        case .unknown: return "Unknown type"
+        case .unchanged: return "Unchanged type"
+        case .empty: return "Empty payload"
+        @unknown default: return "Invalid data"
+        }
+    }
+}
+
 class ScanTagViewController: UIViewController, NFCNDEFReaderSessionDelegate {
     
     @IBOutlet weak var detailsLabel: UILabel!
     //MARK: - PROPERTIES
     var detectedMessages = [NFCNDEFMessage]()
     var session: NFCNDEFReaderSession?
-    
+    var status: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,6 +50,7 @@ class ScanTagViewController: UIViewController, NFCNDEFReaderSessionDelegate {
             case .nfcWellKnown:
                 if let type = String(data: payload[0].type, encoding: .utf8) {
                     if let url = payload[0].wellKnownTypeURIPayload() {
+                        //print()
                         self.detailsLabel.text = "\(payload[0].typeNameFormat.description): \(type), \(url.absoluteString)"
                         
                     } else {
@@ -87,9 +105,21 @@ class ScanTagViewController: UIViewController, NFCNDEFReaderSessionDelegate {
                        session.invalidate()
                        return
                    }
-                   
+                switch ndefStatus.rawValue {
+                case 1:
+                    self.status = "Not supported both Read and Write"
+                case 2:
+                    self.status = "Read and Write"
+                case 3:
+                    self.status = "Read Only"
+                default:
+                    self.status = "Not supported"
+                }
                    tag.readNDEF(completionHandler: { (message: NFCNDEFMessage?, error: Error?) in
                        var statusMessage: String
+                    
+                    
+                        
                        if nil != error || nil == message {
                            statusMessage = "Fail to read NDEF from tag"
                        } else {
@@ -102,29 +132,39 @@ class ScanTagViewController: UIViewController, NFCNDEFReaderSessionDelegate {
                                //self.tableView.reloadData()
                             let payload = self.detectedMessages[0].records
                             print("detected: \(self.detectedMessages)")
-                            switch payload[0].typeNameFormat {
-                            case .nfcWellKnown:
-                                if let type = String(data: payload[0].type, encoding: .utf8) {
-                                    if let url = payload[0].wellKnownTypeURIPayload() {
-                                        
-                                        self.detailsLabel.text = "\(payload[0].typeNameFormat.description): \(type) \nURI Content:  \(url.absoluteString) \nSize: \(payload[0].payload)/\(payload[0].payload.max()!) bytes"
-                                        
-                                    } else {
-                                        self.detailsLabel.text = "\(payload[0].typeNameFormat.description): \(type) \nText Content: \(payload[0].wellKnownTypeTextPayload().0!) \nSize: \(payload[0].payload) / \(payload[0].payload.max()!) bytes"
+                            for data in 0...payload.count-1{
+                                switch payload[data].typeNameFormat {
+                                case .nfcWellKnown:
+                                    if let type = String(data: payload[data].type, encoding: .utf8) {
+                                        if let url = payload[data].wellKnownTypeURIPayload() {
+                                            
+                                            self.detailsLabel.text! += "\(payload[data].typeNameFormat.description): \(type)RI \n\n" +
+                                            "Status: \(self.status) \n\n" +
+                                            "Tag Size: \(payload[data].payload) \n\n" +
+                                            "Maximum Capacity: \(capacity) bytes \n\n" +
+                                            "URI Content: \n\(url.absoluteString) \n\n\n\n\n"
+                                            
+                                        } else {
+                                            self.detailsLabel.text! += "\(payload[data].typeNameFormat.description): \(type)ext \n\n" +
+                                            "Status: \(self.status) \n\n" +
+                                            "Tag Size: \(payload[data].payload) \n\n" +
+                                            "Maximum Capacity: \(capacity) bytes \n\n" +
+                                            "Text Content: \n\(payload[data].wellKnownTypeTextPayload().0!)\n\n\n\n\n"
+                                        }
                                     }
+                                case .absoluteURI:
+                                    if let text = String(data: payload[0].payload, encoding: .utf8) {
+                                        self.detailsLabel.text = "\(text)"
+                                    }
+                                case .media:
+                                    if let type = String(data: payload[0].type, encoding: .utf8) {
+                                        self.detailsLabel.text = "\(payload[0].typeNameFormat.description): " + type
+                                    }
+                                case .nfcExternal, .empty, .unknown, .unchanged:
+                                    fallthrough
+                                @unknown default:
+                                    self.detailsLabel.text = payload[0].typeNameFormat.description
                                 }
-                            case .absoluteURI:
-                                if let text = String(data: payload[0].payload, encoding: .utf8) {
-                                    self.detailsLabel.text = "\(text)"
-                                }
-                            case .media:
-                                if let type = String(data: payload[0].type, encoding: .utf8) {
-                                    self.detailsLabel.text = "\(payload[0].typeNameFormat.description): " + type
-                                }
-                            case .nfcExternal, .empty, .unknown, .unchanged:
-                                fallthrough
-                            @unknown default:
-                                self.detailsLabel.text = payload[0].typeNameFormat.description
                             }
                            }
                        }

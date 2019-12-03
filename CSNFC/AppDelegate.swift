@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         navigationController.popToRootViewController(animated: true)
-        let messageTableViewController = navigationController.topViewController as? MessagesTableViewController
+        let messageTableViewController = navigationController.topViewController as? WriteTableViewController
         messageTableViewController?.addMessage(fromUserActivity: ndefMessage)
 
         return true

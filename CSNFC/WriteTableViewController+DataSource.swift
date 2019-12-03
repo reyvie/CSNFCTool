@@ -8,7 +8,7 @@ Message table view controller
 import UIKit
 import CoreNFC
 import os
-extension MessagesTableViewController {
+extension WriteTableViewController {
     
 
     // MARK: - Table View Functions

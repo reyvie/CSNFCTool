@@ -10,11 +10,11 @@ import CoreNFC
 
 
 /// - Tag: MessagesTableViewController
-class MessagesTableViewController: UITableViewController, NFCNDEFReaderSessionDelegate {
+class WriteTableViewController: UITableViewController, NFCNDEFReaderSessionDelegate {
 
     // MARK: - Properties
     let dummyData = ["9bd9f5d0", "5ds2c5h0", "2fv3d4g1", "4df2g5c2"]
-    
+    //var status = 0
     var selected: String = "" 
     let reuseIdentifier = "reuseIdentifier"
     var detectedMessages = [NFCNDEFMessage]()
@@ -94,6 +94,9 @@ class MessagesTableViewController: UITableViewController, NFCNDEFReaderSessionDe
                             session.alertMessage = "Write NDEF message fail: \(error!)"
                         } else {
                             session.alertMessage = "Write NDEF message successful."
+                            //self.status = ndefStatus.rawValue
+                            
+                            
                             //print("message \(self.message.records[0].)")
                         }
                         session.invalidate()

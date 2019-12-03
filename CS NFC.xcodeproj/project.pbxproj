@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3E30BE92394D3C900F47F5F /* ScanTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E30BE82394D3C800F47F5F /* ScanTagViewController.swift */; };
-		B41052241EC2BA04006D9146 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41052231EC2BA04006D9146 /* AppDelegate.swift */; };
+		5AE551A0E9BFA062DE0458CE /* Pods_CS_NFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A39A4E4F5523F834D556692 /* Pods_CS_NFC.framework */; };
+		B318313B239600CB009D9C90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41052231EC2BA04006D9146 /* AppDelegate.swift */; };
+		B318313C239600D4009D9C90 /* PayloadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47143DE1ECF6EC10026C5B4 /* PayloadsTableViewController.swift */; };
+		B318313D239600DA009D9C90 /* ScanTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E30BE82394D3C800F47F5F /* ScanTagViewController.swift */; };
+		B318313E239600E0009D9C90 /* WriteTableViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47143DD1ECF6EC10026C5B4 /* WriteTableViewController+DataSource.swift */; };
+		B318313F239600E5009D9C90 /* WriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47143DC1ECF6EC10026C5B4 /* WriteTableViewController.swift */; };
 		B41052291EC2BA04006D9146 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B41052271EC2BA04006D9146 /* Main.storyboard */; };
 		B410522E1EC2BA04006D9146 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B410522C1EC2BA04006D9146 /* LaunchScreen.storyboard */; };
 		B47143DA1ECF6EAD0026C5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B47143D81ECF6EAD0026C5B4 /* Assets.xcassets */; };
-		B47143DF1ECF6EC10026C5B4 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47143DC1ECF6EC10026C5B4 /* MessagesTableViewController.swift */; };
-		B47143E01ECF6EC10026C5B4 /* MessagesTableViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47143DD1ECF6EC10026C5B4 /* MessagesTableViewController+DataSource.swift */; };
-		B47143E11ECF6EC10026C5B4 /* PayloadsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47143DE1ECF6EC10026C5B4 /* PayloadsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1426D16B1ED030FC0082EAE0 /* NFCTagReader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = NFCTagReader.entitlements; path = ../NFCTagReader.entitlements; sourceTree = "<group>"; };
+		0899DB4B022820635AC63358 /* Pods-CS NFC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS NFC.release.xcconfig"; path = "Target Support Files/Pods-CS NFC/Pods-CS NFC.release.xcconfig"; sourceTree = "<group>"; };
+		1426D16B1ED030FC0082EAE0 /* CSNFC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = CSNFC.entitlements; path = ../CSNFC.entitlements; sourceTree = "<group>"; };
+		712EB9342346694C7EFA4353 /* Pods-CS NFC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS NFC.debug.xcconfig"; path = "Target Support Files/Pods-CS NFC/Pods-CS NFC.debug.xcconfig"; sourceTree = "<group>"; };
+		7A39A4E4F5523F834D556692 /* Pods_CS_NFC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CS_NFC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E30BE82394D3C800F47F5F /* ScanTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTagViewController.swift; sourceTree = "<group>"; };
 		B41052201EC2BA04006D9146 /* CS NFC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CS NFC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B41052231EC2BA04006D9146 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -27,10 +31,9 @@
 		B41052351EC2BA73006D9146 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B47143D81ECF6EAD0026C5B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B47143D91ECF6EAD0026C5B4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B47143DC1ECF6EC10026C5B4 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
-		B47143DD1ECF6EC10026C5B4 /* MessagesTableViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MessagesTableViewController+DataSource.swift"; sourceTree = "<group>"; };
+		B47143DC1ECF6EC10026C5B4 /* WriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteTableViewController.swift; sourceTree = "<group>"; };
+		B47143DD1ECF6EC10026C5B4 /* WriteTableViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WriteTableViewController+DataSource.swift"; sourceTree = "<group>"; };
 		B47143DE1ECF6EC10026C5B4 /* PayloadsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadsTableViewController.swift; sourceTree = "<group>"; };
-		D5C3DC30D5C429F000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		D8089BF0D8089AD000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,20 +42,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AE551A0E9BFA062DE0458CE /* Pods_CS_NFC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80EE7FEDF34851F270482B29 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				712EB9342346694C7EFA4353 /* Pods-CS NFC.debug.xcconfig */,
+				0899DB4B022820635AC63358 /* Pods-CS NFC.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B41052171EC2BA04006D9146 = {
 			isa = PBXGroup;
 			children = (
 				B41052351EC2BA73006D9146 /* README.md */,
-				B41052221EC2BA04006D9146 /* NFCTagReader */,
+				B41052221EC2BA04006D9146 /* CSNFC */,
 				B41052211EC2BA04006D9146 /* Products */,
-				D5C516C0D5C5168000000001 /* Configuration */,
 				D8087810D8099F5000000001 /* LICENSE */,
+				80EE7FEDF34851F270482B29 /* Pods */,
+				DC419B95F29AE0F6A63E355E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,37 +78,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B41052221EC2BA04006D9146 /* NFCTagReader */ = {
+		B41052221EC2BA04006D9146 /* CSNFC */ = {
 			isa = PBXGroup;
 			children = (
 				B41052231EC2BA04006D9146 /* AppDelegate.swift */,
 				B3E30BE82394D3C800F47F5F /* ScanTagViewController.swift */,
-				B47143DC1ECF6EC10026C5B4 /* MessagesTableViewController.swift */,
-				B47143DD1ECF6EC10026C5B4 /* MessagesTableViewController+DataSource.swift */,
+				B47143DC1ECF6EC10026C5B4 /* WriteTableViewController.swift */,
+				B47143DD1ECF6EC10026C5B4 /* WriteTableViewController+DataSource.swift */,
 				B47143DE1ECF6EC10026C5B4 /* PayloadsTableViewController.swift */,
 				B47143D71ECF6E260026C5B4 /* Resources */,
 			);
-			path = NFCTagReader;
+			path = CSNFC;
 			sourceTree = "<group>";
 		};
 		B47143D71ECF6E260026C5B4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1426D16B1ED030FC0082EAE0 /* NFCTagReader.entitlements */,
+				1426D16B1ED030FC0082EAE0 /* CSNFC.entitlements */,
 				B47143D81ECF6EAD0026C5B4 /* Assets.xcassets */,
 				B47143D91ECF6EAD0026C5B4 /* Info.plist */,
 				B41052271EC2BA04006D9146 /* Main.storyboard */,
 				B410522C1EC2BA04006D9146 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		D5C516C0D5C5168000000001 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				D5C3DC30D5C429F000000001 /* SampleCode.xcconfig */,
-			);
-			name = Configuration;
 			sourceTree = "<group>";
 		};
 		D8087810D8099F5000000001 /* LICENSE */ = {
@@ -105,6 +111,14 @@
 			path = LICENSE;
 			sourceTree = "<group>";
 		};
+		DC419B95F29AE0F6A63E355E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A39A4E4F5523F834D556692 /* Pods_CS_NFC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,9 +126,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B41052321EC2BA04006D9146 /* Build configuration list for PBXNativeTarget "CS NFC" */;
 			buildPhases = (
+				E6CFCEA83257F042E82B6F9F /* [CP] Check Pods Manifest.lock */,
 				B410521C1EC2BA04006D9146 /* Sources */,
 				B410521D1EC2BA04006D9146 /* Frameworks */,
 				B410521E1EC2BA04006D9146 /* Resources */,
+				72979B696086077CBEF11CC9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -181,16 +197,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		72979B696086077CBEF11CC9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CS NFC/Pods-CS NFC-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CS NFC/Pods-CS NFC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6CFCEA83257F042E82B6F9F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CS NFC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B410521C1EC2BA04006D9146 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B47143E11ECF6EC10026C5B4 /* PayloadsTableViewController.swift in Sources */,
-				B3E30BE92394D3C900F47F5F /* ScanTagViewController.swift in Sources */,
-				B47143E01ECF6EC10026C5B4 /* MessagesTableViewController+DataSource.swift in Sources */,
-				B47143DF1ECF6EC10026C5B4 /* MessagesTableViewController.swift in Sources */,
-				B41052241EC2BA04006D9146 /* AppDelegate.swift in Sources */,
+				B318313F239600E5009D9C90 /* WriteTableViewController.swift in Sources */,
+				B318313E239600E0009D9C90 /* WriteTableViewController+DataSource.swift in Sources */,
+				B318313D239600DA009D9C90 /* ScanTagViewController.swift in Sources */,
+				B318313C239600D4009D9C90 /* PayloadsTableViewController.swift in Sources */,
+				B318313B239600CB009D9C90 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +281,6 @@
 /* Begin XCBuildConfiguration section */
 		B41052301EC2BA04006D9146 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5C3DC30D5C429F000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -279,7 +339,6 @@
 		};
 		B41052311EC2BA04006D9146 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5C3DC30D5C429F000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -331,14 +390,14 @@
 		};
 		B41052331EC2BA04006D9146 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5C3DC30D5C429F000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 712EB9342346694C7EFA4353 /* Pods-CS NFC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = NFCTagReader/NFCTagReader.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CSNFC/CSNFC.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 826GYCV8FQ;
-				INFOPLIST_FILE = NFCTagReader/Resources/Info.plist;
+				INFOPLIST_FILE = CSNFC/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cloudstaff.CSNFC;
@@ -353,14 +412,14 @@
 		};
 		B41052341EC2BA04006D9146 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5C3DC30D5C429F000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 0899DB4B022820635AC63358 /* Pods-CS NFC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = NFCTagReader/NFCTagReader.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CSNFC/CSNFC.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 826GYCV8FQ;
-				INFOPLIST_FILE = NFCTagReader/Resources/Info.plist;
+				INFOPLIST_FILE = CSNFC/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cloudstaff.CSNFC;
