@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreNFC
-import Alamofire
+//import Alamofire
 
 extension NFCTypeNameFormat: CustomStringConvertible {
     public var description: String {
